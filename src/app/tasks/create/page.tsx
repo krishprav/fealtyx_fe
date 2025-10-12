@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@/components/ui/dropdown-menu';
 import { ArrowLeftIcon, PlusIcon } from '@heroicons/react/24/outline';
 
 export default function CreateTaskPage() {
@@ -136,16 +137,23 @@ export default function CreateTaskPage() {
                 <label className="text-sm font-medium text-foreground">
                   Priority
                 </label>
-                <Select value={formData.priority} onValueChange={(value) => handleSelectChange('priority', value)}>
-                  <SelectTrigger className="h-11">
-                    <SelectValue placeholder="Select priority" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Low">Low</SelectItem>
-                    <SelectItem value="Medium">Medium</SelectItem>
-                    <SelectItem value="High">High</SelectItem>
-                  </SelectContent>
-                </Select>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="h-11 w-full justify-between">
+                      {formData.priority}
+                      <svg className="h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-full">
+                    <DropdownMenuRadioGroup value={formData.priority} onValueChange={(value) => handleSelectChange('priority', value)}>
+                      <DropdownMenuRadioItem value="Low">Low</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="Medium">Medium</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="High">High</DropdownMenuRadioItem>
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
 
               {/* Assignee */}
@@ -153,21 +161,32 @@ export default function CreateTaskPage() {
                 <label className="text-sm font-medium text-foreground">
                   Assignee
                 </label>
-                <Select value={formData.assignee} onValueChange={(value) => handleSelectChange('assignee', value)}>
-                  <SelectTrigger className="h-11">
-                    <SelectValue placeholder="Select assignee" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value={user.id}>Assign to myself</SelectItem>
-                    {mockUsers
-                      .filter(u => u.id !== user.id && u.role === 'Developer')
-                      .map(u => (
-                        <SelectItem key={u.id} value={u.id}>
-                          {u.name} ({u.role})
-                        </SelectItem>
-                      ))}
-                  </SelectContent>
-                </Select>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="h-11 w-full justify-between">
+                      {formData.assignee ? 
+                        (formData.assignee === user.id ? 'Assign to myself' : 
+                         mockUsers.find(u => u.id === formData.assignee)?.name + ' (Developer)') : 
+                        'Select assignee'
+                      }
+                      <svg className="h-4 w-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-full">
+                    <DropdownMenuRadioGroup value={formData.assignee} onValueChange={(value) => handleSelectChange('assignee', value)}>
+                      <DropdownMenuRadioItem value={user.id}>Assign to myself</DropdownMenuRadioItem>
+                      {mockUsers
+                        .filter(u => u.id !== user.id && u.role === 'Developer')
+                        .map(u => (
+                          <DropdownMenuRadioItem key={u.id} value={u.id}>
+                            {u.name} ({u.role})
+                          </DropdownMenuRadioItem>
+                        ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
 
               {/* Due Date */}

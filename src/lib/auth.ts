@@ -4,20 +4,20 @@ import { User } from '@/types';
 export const mockUsers: User[] = [
   {
     id: '1',
-    name: 'John Developer',
-    email: 'john@example.com',
+    name: 'Developer 1',
+    email: 'developer1@example.com',
     role: 'Developer'
   },
   {
     id: '2',
-    name: 'Jane Manager',
-    email: 'jane@example.com',
+    name: 'Manager',
+    email: 'manager@example.com',
     role: 'Manager'
   },
   {
     id: '3',
-    name: 'Bob Developer',
-    email: 'bob@example.com',
+    name: 'Developer 2',
+    email: 'developer2@example.com',
     role: 'Developer'
   }
 ];

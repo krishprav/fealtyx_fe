@@ -68,13 +68,13 @@ A comprehensive bug and task tracking application built with Next.js 15, featuri
 The application includes demo accounts for testing:
 
 ### Developer Account
-- **Email**: john@example.com
-- **Password**: Any password (mock authentication)
+- **Email**: developer1@example.com
+- **Password**: password
 - **Features**: Task management, time tracking, task creation
 
 ### Manager Account
-- **Email**: jane@example.com
-- **Password**: Any password (mock authentication)
+- **Email**: manager@example.com
+- **Password**: password
 - **Features**: Team oversight, approval system, analytics
 
 ## 📱 Usage Guide

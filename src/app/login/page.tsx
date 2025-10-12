@@ -57,8 +57,8 @@ export default function LoginPage() {
       
       <div className="w-full max-w-md space-y-8">
         <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            FealtyX
+          <h1 className="text-3xl font-bold">
+            <span className="logoFealty">Fealty</span><span className="logoX">X</span>
           </h1>
           <p className="text-muted-foreground">Bug & Task Tracker</p>
         </div>
@@ -150,13 +150,23 @@ export default function LoginPage() {
 
             <div className="text-center space-y-2 pt-4 border-t border-border">
               <p className="text-xs text-muted-foreground">Demo credentials</p>
-              <div className="flex justify-center gap-2">
-                <Badge variant="outline" className="text-xs">
-                  john@example.com
-                </Badge>
-                <Badge variant="outline" className="text-xs">
-                  jane@example.com
-                </Badge>
+              <div className="space-y-1">
+                <div className="flex justify-center gap-2">
+                  <Badge variant="outline" className="text-xs">
+                    developer1@example.com
+                  </Badge>
+                  <Badge variant="outline" className="text-xs">
+                    password
+                  </Badge>
+                </div>
+                <div className="flex justify-center gap-2">
+                  <Badge variant="outline" className="text-xs">
+                    manager@example.com
+                  </Badge>
+                  <Badge variant="outline" className="text-xs">
+                    password
+                  </Badge>
+                </div>
               </div>
             </div>
           </CardContent>

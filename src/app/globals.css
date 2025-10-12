@@ -27,6 +27,8 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --brand-text-light: 222.2 84% 4.9%;
+    --brand-purple-accent: 270 95% 60%;
   }
 
   .dark {
@@ -54,6 +56,8 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --brand-text-light: 210 40% 98%;
+    --brand-purple-accent: 270 95% 70%;
   }
 }
 
@@ -125,4 +129,19 @@
 
 .glow-destructive {
   box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+}
+
+/* Custom FealtyX Logo Styling */
+.logoFealty {
+  font-family: var(--font-baumans), 'Baumans', cursive;
+  font-size: 2.4rem;
+  color: hsl(var(--brand-text-light));
+  letter-spacing: 0.5px;
+}
+
+.logoX {
+  font-family: var(--font-merienda), 'Merienda', cursive;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: hsl(var(--brand-purple-accent));
 }
