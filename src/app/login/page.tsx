@@ -162,9 +162,6 @@ export default function LoginPage() {
           </CardContent>
         </Card>
 
-        <div className="text-center text-xs text-muted-foreground">
-          <p>Built with Next.js 15, React, and shadcn/ui</p>
-        </div>
       </div>
     </div>
   );

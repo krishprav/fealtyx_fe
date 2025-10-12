@@ -67,7 +67,7 @@ export default function Layout({ children }: LayoutProps) {
               <div className="flex justify-between h-16">
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
-                <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                <h1 className="text-xl font-bold text-foreground">
                   FealtyX
                 </h1>
               </div>
