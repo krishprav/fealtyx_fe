@@ -32,7 +32,7 @@ function loadTasksFromStorage(): Task[] {
     if (stored) {
       const parsedTasks = JSON.parse(stored);
       // Convert date strings back to Date objects
-      return parsedTasks.map((task: any) => ({
+      return parsedTasks.map((task: Task & { createdDate: string; dueDate?: string; lastUpdated: string }) => ({
         ...task,
         createdDate: new Date(task.createdDate),
         dueDate: task.dueDate ? new Date(task.dueDate) : undefined,
@@ -51,7 +51,7 @@ function loadTimeEntriesFromStorage(): TimeEntry[] {
     if (stored) {
       const parsedEntries = JSON.parse(stored);
       // Convert date strings back to Date objects
-      return parsedEntries.map((entry: any) => ({
+      return parsedEntries.map((entry: TimeEntry & { date: string }) => ({
         ...entry,
         date: new Date(entry.date)
       }));
@@ -117,11 +117,11 @@ export function initializeData() {
         priority: 'Medium',
         status: 'Open',
         assignee: '2',
-        createdDate: new Date('2025-10-15'),
+        createdDate: new Date('2025-10-12'),
         dueDate: new Date('2025-10-28'),
         timeLogged: 0,
         createdBy: '1',
-        lastUpdated: new Date('2025-10-15')
+        lastUpdated: new Date('2025-10-12')
       }
     ];
 
